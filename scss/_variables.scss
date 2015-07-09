@@ -1,0 +1,48 @@
+// GRID HELPERS
+$configs: (
+	full: 100%,
+	half: 100% / 2,
+	third: 100% / 3,
+	quarter: 100% / 4,
+	col-op: 10px,
+	col-ip: 20px,
+	grid-start: 1,
+	grid-end: 12,
+	grid-width: 100%
+);
+
+$colors: (
+	default: #CCC
+);
+
+$breakpoints: (
+	phone: 399px,
+	phone-lg: 649px,
+	tablet: 767px,
+	tablet-lg: 991px,
+	desktop: 1023px
+);
+
+@function config($key) {
+	@if map-has-key($configs, $key) {
+		@return map-get($configs, $key);
+	}
+	@warn "Unknown #{$key} in configs map";
+	@return null;
+}
+
+@function color($key) {
+	@if map-has-key($colors, $key) {
+		@return map-get($colors, $key);
+	}
+	@warn "Unknown #{$key} in colors map";
+	@return null;
+}
+
+@function breakpoint($key) {
+	@if map-has-key($breakpoints, $key) {
+		@return map-get($breakpoints, $key);
+	}
+	@warn "Unknown #{$key} in breakpoints map";
+	@return null;
+}
